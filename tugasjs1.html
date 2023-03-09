@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feisal Dharma Yuda</title>
+    <script>
+      const panjang = 7;
+      const lebar = 5;
+      const luasPersegiPanjang = panjang * lebar;
+      const kelilingPersegiPanjang = 2 * (panjang + lebar);
+
+      const alasJajarGenjang = 9;
+      const tinggiJajarGenjang = 6;
+      const sisiMiringJajarGenjang = 10;
+      const luasJajarGenjang = alasJajarGenjang * tinggiJajarGenjang;
+      const kelilingJajarGenjang = 2 * (alasJajarGenjang + sisiMiringJajarGenjang);
+
+      const alasSegitiga = 8;
+      const tinggiSegitiga = 6;
+      const sisiMiringSegitiga = 10;
+      const luasSegitiga = 0.5 * alasSegitiga * tinggiSegitiga;
+      const kelilingSegitiga = alasSegitiga + sisiMiringSegitiga + sisiMiringSegitiga;
+
+      function tampilkanHasil() {
+        document.getElementById("panjangPersegiPanjang").innerHTML = panjang;
+        document.getElementById("lebarPersegiPanjang").innerHTML = lebar;
+        document.getElementById("luasPersegiPanjang").innerHTML = luasPersegiPanjang;
+        document.getElementById("kelilingPersegiPanjang").innerHTML = kelilingPersegiPanjang;
+
+        document.getElementById("alasJajarGenjang").innerHTML = alasJajarGenjang;
+        document.getElementById("tinggiJajarGenjang").innerHTML = tinggiJajarGenjang;
+        document.getElementById("sisiMiringJajarGenjang").innerHTML = sisiMiringJajarGenjang;
+        document.getElementById("luasJajarGenjang").innerHTML = luasJajarGenjang;
+        document.getElementById("kelilingJajarGenjang").innerHTML = kelilingJajarGenjang;
+
+        document.getElementById("alasSegitiga").innerHTML = alasSegitiga;
+        document.getElementById("tinggiSegitiga").innerHTML = tinggiSegitiga;
+        document.getElementById("sisiMiringSegitiga").innerHTML = sisiMiringSegitiga;
+        document.getElementById("luasSegitiga").innerHTML = luasSegitiga;
+        document.getElementById("kelilingSegitiga").innerHTML = kelilingSegitiga;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Perhitungan Luas dan Keliling Bangun Datar</h1>
+    <p>Persegi Panjang</p>
+    <p>Panjang: <span id="panjangPersegiPanjang"></span></p>
+    <p>Lebar: <span id="lebarPersegiPanjang"></span></p>
+    <p>Luas: <span id="luasPersegiPanjang"></span></p>
+    <p>Keliling: <span id="kelilingPersegiPanjang"></span></p>
+    <br>
+    <p>Jajar Genjang</p>
+    <p>Alas: <span id="alasJajarGenjang"></span></p>
+    <p>Tinggi: <span id="tinggiJajarGenjang"></span></p>
+    <p>Sisi Miring: <span id="sisiMiringJajarGenjang"></span></p>
+    <p>Luas: <span id="luasJajarGenjang"></span></p>
+    <p>Keliling: <span id="kelilingJajarGenjang"></span></p>
+    <br>
+    <p>Segitiga</p>
+    <p>Alas: <span id="alasSegitiga"></span></p>
+    <p>Tinggi: <span id="tinggiSegitiga"></span></p>
+    <p>Sisi Miring: <span id="sisiMiringSegitiga"></span></p>
+    <p>Luas: <span id="luasSegitiga"></span></p>
+    <p>Keliling: <span id="kelilingSegitiga"></span></p>
+    <br>
+    <button onclick="tampilkanHasil()">Tampilkan Hasil</button>
+  </body>
