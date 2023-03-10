@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Diketahui 
+    // Pegawai: nama_kalian
+    // Jabatan : manager
+    // status : bebas
+    const nama = "Feisal Dharma Yuda";
+    const jabatan = "Manager";
+    const status = "Menikah";
+
+    // Proses:
+    // Cetak data pegawai , jabatan, gaji dan lainnya dengan ketentuan 
+    // Gaji pokok : jika jabatan manager(10), Asisten manager(8), Staff(5) Juta
+    // Tunjangan Jabatan = 10% dari Gaji pokok
+    // BPJS = 10% dari gaji pokok 
+    // Tunjangan keluarga bagia yang sudah menikah sebesar 10%
+    // Totalkan seluruh pendapatan atau penghasilan 
+    let gajipokok;
+    if(jabatan == "Manager"){
+        gajipokok = 10000000;
+    }else if(jabatan == "Asisten Manager"){
+        gajipokok = 8000000;
+    }else if(jabatan == "Staff"){
+        gajipokok = 5000000;
+    }else{
+        gajipokok = 0;
+    }
+
+    const tunjanganjabatan = gajipokok * 0.1;
+    const bpjs = gajipokok * 0.1;
+    let tunjangankeluarga;
+    if(status == "Menikah"){
+        tunjangankeluarga = gajipokok * 0.1;
+    }else{
+        tunjangankeluarga = 0;
+    }
+
+    document.write("Nama : " + nama + "<br>");
+    document.write("Jabatan : " + jabatan + "<br>");
+    document.write("Status : " + status + "<br>");
+    document.write("Gaji Pokok : " + gajipokok + "<br>");
+    document.write("Tunjangan Jabatan : " + tunjanganjabatan + "<br>");
+    document.write("BPJS : " + bpjs + "<br>");
+    document.write("Tunjangan Keluarga : " + tunjangankeluarga + "<br>");
+    document.write("Total Pendapatan : " + (gajipokok + tunjanganjabatan - bpjs + tunjangankeluarga) + "<br>");
+</script>
+</html>
