@@ -47,4 +47,11 @@ body {
   button:hover {
     background-color: #3e8e41;
   }
+
+  .buttonjq {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   
