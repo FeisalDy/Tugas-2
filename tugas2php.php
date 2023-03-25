@@ -1,13 +1,19 @@
 <?php
-$jabatan = $_POST["jabatan"];
-$status = $_POST["status"];
-$jumlah_anak = $_POST["jumlah_anak"];
+$jabatan = "";
+$status = "";
+$jumlah_anak = "";
 $gaji_pokok = 0;
 $tunjangan_jabatan = 0;
 $tunjangan_keluarga = 0;
 $gaji_kotor = 0;
 $zakat_profesi = 0;
 $take_home_pay = 0;
+
+if (isset($_POST["submit"])) {
+    $jabatan = $_POST["jabatan"];
+    $status = $_POST["status"];
+    $jumlah_anak = $_POST["jumlah_anak"];
+}
 
 switch ($jabatan) {
     case "Manager":
@@ -21,6 +27,9 @@ switch ($jabatan) {
         break;
     case "Staff":
         $gaji_pokok = 4000000;
+        break;
+    case "":
+        $gaji_pokok = 0;
         break;
     default:
         echo "Jabatan tidak valid.";
@@ -80,7 +89,7 @@ $take_home_pay = $gaji_kotor - $zakat_profesi;
             <option value="Buddha">Buddha</option>
             <option value="Kong Hu Cu">Kong Hu Cu</option>
         </select>
-        <input type="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
     </form>
     <div class="container">
         <h1>Rincian gaji <?php echo $jabatan ?>:</h1>
