@@ -66,17 +66,14 @@ h1 {
     text-align: center;
 }
 
-/* Define a style for the labels */
 label {
     font-weight: bold;
 }
 
-/* Define a style for the values */
 span {
     font-weight: normal;
 }
 
-/* Define a style for the container */
 .container {
     background-color: #fff;
     border-radius: 5px;
@@ -86,14 +83,16 @@ span {
     margin: 20px auto;
 }
 
-/* Define a style for the table */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Define a style for the table cells */
-td {
+td, th {
     padding: 5px;
     border: 1px solid #ccc;
+}
+tfoot td {
+    font-weight: bold;
+    background-color: #eeeeee;
 }
