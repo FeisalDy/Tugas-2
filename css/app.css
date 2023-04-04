@@ -1,0 +1,130 @@
+body{
+  background-color: #F2F5F7  ;
+}
+#neubar {
+    background: #DDDDDA;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.4)
+  }
+
+  .navbar-brand {
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #454545;
+  }
+  
+  .nav-item .nav-link{
+    font-weight: bold;
+    color: #000;
+  }
+  .nav-item .active {
+    background-color: #f07655;
+    color: #fff;
+  }
+.custom-icon {
+  width: 24px;
+  height: 17px;
+  position: relative;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-icon {
+  width: 24px;
+  height: 17px;
+  position: relative;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-icon span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #f07655; /* Change this to the color you want */
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.2s ease-out;
+}
+
+.custom-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.custom-icon span:nth-child(2),
+.custom-icon span:nth-child(3) {
+  top: 7px;
+}
+
+.custom-icon span:nth-child(3) {
+  top: 14px;
+}
+
+/* Rotate first and third span to create the 3-stripe effect */
+.custom-icon span:nth-child(1) {
+  transform-origin: left center;
+}
+
+.custom-icon span:nth-child(3) {
+  transform-origin: left center;
+}
+
+/* Add a class to rotate the icon when the toggler is clicked */
+.navbar-toggler.rotate .custom-icon span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler.rotate .custom-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler.rotate .custom-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+  #neubar .dropdown-menu a:hover {
+    color: #454545
+  }
+  #neubar .nav-item {
+    margin : auto 4px;
+  }
+  #neubar a {
+    padding-left:12px;
+    padding-right:12px;
+  }
+  #neubar .dropdown-menu {
+    background : #545454
+  }
+  a.navbar-brand {
+    color: #454545
+  }
+
+  .btn-custom, .btn-custom:hover, .btn-custom:active, .btn-custom:visited {
+    background-color: #f07655 !important;
+    color: #fff;
+    font-weight: bolder;
+  }
+
+  .bg-custom {
+    background-color: #1bd948 !important;
+    color: #fff;
+  }
+  .bg-custom-nav {
+    background-color: #f07655 !important;
+    color: #fff;
+    font-weight: bold;
+  }
+  .bg-custom-nav .dropdown-item:hover{
+    background-color: #fff !important;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+
+  
