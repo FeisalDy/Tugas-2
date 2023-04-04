@@ -12,9 +12,9 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-white" id="neubar">
+	<nav class="navbar navbar-expand-sm" style="background: #fff;" id="neubar">
 		<div class="container">
-			<a class="navbar-brand" href="#"><img src="img/logo2.png" height="50"></a>
+			<a class=" navbar-brand" href="#"><img src="img/logo2.png" height="50"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('rotate')">
 				<div class="custom-icon">
 					<span></span>
