@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 07, 2023 at 12:02 PM
+-- Generation Time: Apr 13, 2023 at 12:13 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -31,6 +31,17 @@ CREATE TABLE `jenis_produk` (
   `id` int NOT NULL,
   `nama` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `jenis_produk`
+--
+
+INSERT INTO `jenis_produk` (`id`, `nama`) VALUES
+(1, 'Makanan'),
+(2, 'Minuman'),
+(3, 'Pakaian'),
+(4, 'Obat-obatan'),
+(5, 'Elektronik');
 
 -- --------------------------------------------------------
 
@@ -175,38 +186,45 @@ ALTER TABLE `kartu`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `kode` (`kode`);
+  ADD UNIQUE KEY `kode` (`kode`),
+  ADD KEY `kartu_id` (`kartu_id`);
 
 --
 -- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nokuitansi` (`nokuitansi`);
+  ADD UNIQUE KEY `nokuitansi` (`nokuitansi`),
+  ADD KEY `pesanan_id` (`pesanan_id`);
 
 --
 -- Indexes for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pembelian_ibfk_1` (`vendor_id`);
 
 --
 -- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pelanggan_id` (`pelanggan_id`);
 
 --
 -- Indexes for table `pesanan_items`
 --
 ALTER TABLE `pesanan_items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pesanan_id` (`pesanan_id`),
+  ADD KEY `produk_id` (`produk_id`);
 
 --
 -- Indexes for table `produk`
 --
 ALTER TABLE `produk`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produk_ibfk_1` (`jenis_produk_id`);
 
 --
 -- Indexes for table `vendor`
@@ -222,7 +240,7 @@ ALTER TABLE `vendor`
 -- AUTO_INCREMENT for table `jenis_produk`
 --
 ALTER TABLE `jenis_produk`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kartu`
@@ -271,6 +289,47 @@ ALTER TABLE `produk`
 --
 ALTER TABLE `vendor`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD CONSTRAINT `pelanggan_ibfk_1` FOREIGN KEY (`kartu_id`) REFERENCES `kartu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`pesanan_id`) REFERENCES `pesanan` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `pembelian`
+--
+ALTER TABLE `pembelian`
+  ADD CONSTRAINT `pembelian_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`pelanggan_id`) REFERENCES `pelanggan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pesanan_items`
+--
+ALTER TABLE `pesanan_items`
+  ADD CONSTRAINT `pesanan_items_ibfk_1` FOREIGN KEY (`pesanan_id`) REFERENCES `pesanan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pesanan_items_ibfk_2` FOREIGN KEY (`produk_id`) REFERENCES `produk` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `produk`
+--
+ALTER TABLE `produk`
+  ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`jenis_produk_id`) REFERENCES `jenis_produk` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
